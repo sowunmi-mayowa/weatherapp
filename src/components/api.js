@@ -41,7 +41,12 @@ const Api = () => {
         <div>
             <button className="bg-blue-600 text-white text-boold" onClick={getWeather}>Get weather</button>
             {
-                
+                results && (
+                   <div>
+                        <p>{ results.weather[0].description }</p>
+                        <p>The weather reaults at { results.name }, { results.sys.country } </p>
+                   </div>
+                )
             }
         </div>
     )                       
