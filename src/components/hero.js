@@ -4,18 +4,22 @@ import Header from './header';
 import { useClock } from 'react-use-clock'
 
 const Hero = (props) => {
-    console.log(props)
-    const [img, setImg] = useState(null);
+    const id = "GB-b7rfszFfYynFsFNIa7_vXYN35zaPIyeceyOF0OOY";
+    const [img, setImg] = useState(null)
+    
     function getBg(){
-        fetch('https://api.unsplash.com/photos/random/?client_id=GB-b7rfszFfYynFsFNIa7_vXYN35zaPIyeceyOF0OOY')
+        fetch(`https://api.unsplash.com/photos/random?page=1&query=nature&client_id=${id}&per_page=1`)
         .then(res => res.json())
-        .then(data => setImg(data))
+        .then(data => {
+            setImg(data.urls.full)
+            console.log(data.urls.full);
+        })
         .catch(err => console.log(err))
     }
-
-    // useEffect(() => {
-    //     getBg()
-    // })
+    useEffect(() => {
+        getBg();
+    },[])
+     
     function getDate(){
         let date = new Date();
 
@@ -25,9 +29,18 @@ const Hero = (props) => {
 
         return `${day}-${month}-${year}`
     }
-     const clock = useClock()
+
+    const backgroundStyle = {
+        backgroundImage: `url(${img})`,
+      };
+    
+      const positionStyle = {
+        backgroundPosition: 'center',
+      };
+
+     const clock = useClock();
     return (
-        <div style={{background: `url(${heroBg})`, backgroundPosition: "center", backgroundSize: "cover", height: "80vh"}} className="flex justify-center items-center flex-col">
+        <div style={{...backgroundStyle, ...positionStyle}} className="background flex justify-center items-center flex-col">
             <Header />
 			<strong className="text-6xl text-white">
 				{clock.hours.toString().padStart(2, '0')}:
@@ -37,6 +50,7 @@ const Hero = (props) => {
             <div className="text-white">
                 <p className="text-center text-2xl font-thin"> { getDate()}</p>
             </div>
+            {/* <img src={img.urls.full} alt="" style={{backgroundPosition: "center", backgroundSize: "cover"}}/> */}
         </div>
     )
 }
