@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
-import heroBg from '../img/pexels-sebastian-arie-voortman-165505.jpg';
 import Header from './header';
 import { useClock } from 'react-use-clock'
+import Api from './api';
 
 const Hero = (props) => {
     const id = "GB-b7rfszFfYynFsFNIa7_vXYN35zaPIyeceyOF0OOY";
@@ -50,7 +50,7 @@ const Hero = (props) => {
             <div className="text-white">
                 <p className="text-center text-2xl font-thin"> { getDate()}</p>
             </div>
-            {/* <img src={img.urls.full} alt="" style={{backgroundPosition: "center", backgroundSize: "cover"}}/> */}
+            <Api />
         </div>
     )
 }

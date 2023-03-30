@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import '../output.css'
+import Views from './views';
 
 const Api = () => {
     const [results, setResults] = useState(null)
@@ -21,7 +22,7 @@ const Api = () => {
             console.log('latitude: ' ,lat);
             console.log('longitude: ' ,long);
         }
-        const url = "https://api.openweathermap.org/data/2.5/weather?lat="+ lat + "&lon=" + long + "&appid=8369418bc7da331b03b144d779c0ec81";
+        const url = "https://api.openweathermap.org/data/2.5/weather?lat="+ lat + "&lon=" + long + "&appid=8369418bc7da331b03b144d779c0ec81&uni";
         fetch(url)
         .then(res => res.json())
         .then(data => {
@@ -36,19 +37,9 @@ const Api = () => {
 
     
     return (
-        <div>
-            <button className="bg-blue-600 text-white text-boold" >Get weather</button>
-            <p>lat: {lat} long: {long} </p>
-            {
-                results && (
-                   <div>
-                   <img src={ `https://openweathermap.org/img/wn/${results.weather[0].icon}@2x.png`} alt=""/>
-                        <p>{ results.weather[0].description }</p>
-                        <p>The weather reaults at { results.name }, { results.sys.country } </p>
-                   </div>
-                )
-            }
-        </div>
+       <div>
+           <Views results = {results}/> 
+       </div>
     )                       
 }
 
