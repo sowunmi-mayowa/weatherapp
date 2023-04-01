@@ -2,6 +2,7 @@ import { WiThermometer, WiHumidity } from "react-icons/wi";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { MdSpeed } from "react-icons/md";
 
+import Clock from './clock';
 const Views = (props) => {
     const results = props.results;
     return (
@@ -9,6 +10,9 @@ const Views = (props) => {
         {
             results && (
                <div className="flex flex-col justify-center items-center bg-white rounded-xl shadow-xl p-8">
+               <div className="text-black">
+                <Clock />
+                </div>
                 <div className="flex items-center justify-center flex-col md:flex-row">
                     <div>
                         <img src={ `https://openweathermap.org/img/wn/${results.weather[0].icon}@2x.png`} alt="nature images from unsplash" className="w-32"/>
@@ -23,7 +27,7 @@ const Views = (props) => {
                         <div className="flex flex-col items-center justify-center">
                             <div className="flex items-center justify-center">
                                 <WiThermometer className="w-8 h-8"/>
-                                <p className="text-4xl font-bold">{ Math.round(results.main.temp )  }<sup>o</sup>C</p>
+                                <p className="text-4xl font-bold">{ Math.round(results.main.temp ) - 273 }<sup>o</sup>C</p>
                             </div>
                             <p className="text-xs text-gray-400 text-center">Temperature</p>
                         </div>

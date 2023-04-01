@@ -38,7 +38,7 @@ const Api = () => {
     
     return (
        <div>
-           <Views results = {results}/> 
+        <Views results = {results}/> 
        </div>
     )                       
 }
