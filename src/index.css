@@ -1,9 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+ @import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+
 .background{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
+}
+#text{
+    font-family: 'League Gothic', sans-serif;
 }
