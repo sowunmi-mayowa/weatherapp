@@ -9,17 +9,17 @@ const Views = (props) => {
         <div>
         {
             results && (
-               <div className="flex flex-col justify-center items-center bg-white rounded-xl shadow-xl p-8">
+               <div className="flex flex-col justify-center items-center rounded-xl shadow-xl p-8 card">
                <div className="text-black">
                 <Clock />
                 </div>
-                <div className="flex items-center justify-center flex-col md:flex-row">
-                    <div>
+                <div className="flex flex-col md:flex-row">
+                    <div className="flex items-center justify-center flex-col">
                         <img src={ `https://openweathermap.org/img/wn/${results.weather[0].icon}@2x.png`} alt="nature images from unsplash" className="w-32"/>
                         <p className="text-md text-center capitalize font-bold">{ results.weather[0].description }</p>
                     </div>
                     <div>
-                    <div className="flex items-center  font-light text-gray-400 mb-4 text-sm">
+                    <div className="flex items-center gap-2 font-light text-black mb-4 text-sm">
                         < HiOutlineLocationMarker />
                         <p>{ results.name }, { results.sys.country }. </p>
                     </div>
@@ -29,21 +29,21 @@ const Views = (props) => {
                                 <WiThermometer className="w-8 h-8"/>
                                 <p className="text-4xl font-bold">{ Math.round(results.main.temp ) - 273 }<sup>o</sup>C</p>
                             </div>
-                            <p className="text-xs text-gray-400 text-center">Temperature</p>
+                            <p className="text-xs text-black text-center">Temperature</p>
                         </div>
                         <div>
                             <div className="flex items-center justify-center my-4 md:my-0 md:mx-4">
                                 <WiHumidity className="w-8 h-8"/>
                                 <p className="text-4xl font-bold">{ results.main.humidity }%</p>
                             </div>
-                            <p className="text-xs text-gray-400 text-center">Humidity</p>
+                            <p className="text-xs text-black text-center">Humidity</p>
                         </div>
                         <div>
                             <div className="flex items-center justify-center">
                                 <MdSpeed className="w-8 h-8"/>
                                 <p className="text-4xl font-bold">{ results.wind.speed }</p>
                             </div>
-                            <p className="text-xs text-gray-400 text-center">Wind Speed (m/s)</p>
+                            <p className="text-xs text-black text-center">Wind Speed (m/s)</p>
                         </div>
                     </div>
                         
