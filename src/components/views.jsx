@@ -19,7 +19,7 @@ const Views = (props) => {
                         <p className="text-md text-center capitalize font-bold">{ results.weather[0].description }</p>
                     </div>
                     <div>
-                    <div className="flex items-center gap-2 font-light text-black mb-4 text-sm">
+                    <div className="flex items-center gap-2 font-light pl-10 md:pl-0 text-black mb-2 text-sm">
                         < HiOutlineLocationMarker />
                         <p>{ results.name }, { results.sys.country }. </p>
                     </div>
